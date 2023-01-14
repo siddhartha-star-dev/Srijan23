@@ -9,7 +9,7 @@ class Prod(Common):
     # Use local database
     DATABASES = {
         "default": env.db(
-            "DATABASE_URL",
+            "SRIJAN_BACKEND_DATABASE_URL_PROD",
             default="psql://srijan_backend_user:test_password@127.0.0.1:5432/srijan_backend_db",
         )
     }
