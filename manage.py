@@ -7,7 +7,7 @@ import sys
 def main():
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "srijan_backend.config")
-    os.environ.setdefault("DJANGO_CONFIGURATION", "Dev")
+    os.environ.setdefault("DJANGO_CONFIGURATION", "Prod")
 
     try:
         from configurations.management import execute_from_command_line
