@@ -13,8 +13,11 @@ class Dev(Common):
     )
 
     # Add only dev based middleware here
-    MIDDLEWARE += env.list(
-        "SRIJAN_BACKEND_DEV_MIDDLEWARE", default=[]
+    MIDDLEWARE += env.list("SRIJAN_BACKEND_DEV_MIDDLEWARE", default=[])
+
+    ALLOWED_HOSTS = env.list(
+        "SRIJAN_BACKEND_PROD_ALLOWED_HOSTS",
+        default=["*"],
     )
 
     # Keep debug true in development
@@ -23,7 +26,7 @@ class Dev(Common):
     # Use local database
     DATABASES = {
         "default": env.db(
-            "SRIJAN_BACKEND_DATABASE_URL_DEV",
+            "DATABASE_URL",
             default=f"sqlite:///srijan_backend_dev.sqlite",
         )
     }

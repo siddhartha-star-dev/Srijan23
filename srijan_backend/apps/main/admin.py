@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from srijan_backend.apps.main.models import (
+    Developers,
     Event,
     Exhibition,
     GuestTalk,
@@ -45,6 +46,11 @@ class ExhibitionAdmin(admin.ModelAdmin):
 
 @admin.register(OrganisingTeamMember)
 class OrganisingTeamMemberAdmin(admin.ModelAdmin):
+    list_display = ("name", "contact")
+
+
+@admin.register(Developers)
+class DevelopersAdmin(admin.ModelAdmin):
     list_display = ("name", "contact")
 
 

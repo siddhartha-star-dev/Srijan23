@@ -6,6 +6,7 @@ from srijan_backend.apps.main.models.activities import (
     Workshop,
 )
 from srijan_backend.apps.main.models.management import (
+    Developers,
     Notification,
     OrganisingTeamMember,
 )

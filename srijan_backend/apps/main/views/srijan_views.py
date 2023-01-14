@@ -4,6 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import GenericViewSet
 
 from srijan_backend.apps.main.models import (
+    Developers,
     Event,
     Exhibition,
     GuestTalk,
@@ -15,6 +16,7 @@ from srijan_backend.apps.main.models import (
     Workshop,
 )
 from srijan_backend.apps.main.serializers import (
+    DevelopersSerializer,
     EventSerializer,
     ExhibitionSerializer,
     GuestTalkSerializer,
@@ -44,7 +46,7 @@ class EventViewSet(
     }
 
     def get_queryset(self):
-        return Event.objects.all()
+        return Event.objects.filter(to_publish=True)
 
 
 class ExhibitionViewSet(
@@ -145,6 +147,26 @@ class OrganisingTeamMemberViewSet(
 
     def get_queryset(self):
         return OrganisingTeamMember.objects.all()
+
+
+class DevelopersViewSet(
+    RetrieveModelMixin,
+    ListModelMixin,
+    PsqMixin,
+    GenericViewSet,
+):
+    http_method_names = [
+        "get",
+    ]
+    pagination_class = None
+    permission_classes = [AllowAny]
+    psq_rules = {
+        "list": [Rule([AllowAny], DevelopersSerializer)],
+        "retrieve": [Rule([AllowAny], DevelopersSerializer)],
+    }
+
+    def get_queryset(self):
+        return Developers.objects.all()
 
 
 class SponsorViewSet(

@@ -3,6 +3,7 @@ from rest_framework.routers import SimpleRouter
 
 from srijan_backend.apps.accounts.views import ProfileViewSet
 from srijan_backend.apps.main.views import (
+    DevelopersViewSet,
     EventViewSet,
     ExhibitionViewSet,
     GuestTalkViewSet,
@@ -26,6 +27,7 @@ router.register(
     OrganisingTeamMemberViewSet,
     basename="organisingteammember",
 )
+router.register("developers", DevelopersViewSet, basename="developer")
 router.register("sponsors", SponsorViewSet, basename="sponsor")
 router.register("winners", WinnerViewSet, basename="winner")
 router.register("workshops", WorkshopViewSet, basename="workshop")

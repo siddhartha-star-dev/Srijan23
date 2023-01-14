@@ -16,6 +16,7 @@ class Event(models.Model):
     summary = models.CharField(max_length=200)
     details = models.TextField()
     event_type = models.CharField(choices=EventType.choices, max_length=20)
+    to_publish = models.BooleanField()
     brochure_link = models.URLField()
     register_link = models.URLField()
     image = models.ImageField(upload_to="event_images")

@@ -6,28 +6,17 @@ class Prod(Common):
     # Keep debug true in development
     DEBUG = False
 
-    # Restrict the allowed hosts
-    ALLOWED_HOSTS = env.list(
-        "SRIJAN_BACKEND_PROD_ALLOWED_HOSTS",
-        default=[
-            "127.0.0.1",
-            "localhost",
-        ],
-    )
-
     # Use local database
     DATABASES = {
         "default": env.db(
-            "SRIJAN_BACKEND_DATABASE_URL_PROD",
+            "DATABASE_URL",
             default="psql://srijan_backend_user:test_password@127.0.0.1:5432/srijan_backend_db",
         )
     }
 
     # Mail
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-    EMAIL_PORT = env.str(
-        "SRIJAN_BACKEND_EMAIL_PORT", default="1025"
-    )
+    EMAIL_PORT = env.str("SRIJAN_BACKEND_EMAIL_PORT", default="1025")
     EMAIL_HOST = env.str(
         "SRIJAN_BACKEND_EMAIL_HOST",
         default="127.0.0.1",
@@ -40,9 +29,7 @@ class Prod(Common):
         "SRIJAN_BACKEND_EMAIL_HOST_PASSWORD",
         default="password",
     )
-    EMAIL_USE_TLS = env.bool(
-        "SRIJAN_BACKEND_EMAIL_USE_TLS", default=True
-    )
+    EMAIL_USE_TLS = env.bool("SRIJAN_BACKEND_EMAIL_USE_TLS", default=True)
 
     # Disable CORS check
     CORS_ALLOWED_ORIGINS = env.list(

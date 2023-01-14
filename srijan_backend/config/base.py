@@ -23,9 +23,7 @@ class Common(Configuration):
 
     BASE_DIR = BASE_DIR
 
-    SECRET_KEY = env.str(
-        "SRIJAN_BACKEND_SECRET_KEY", default="temp"
-    )
+    SECRET_KEY = env.str("SRIJAN_BACKEND_SECRET_KEY", default="temp")
 
     INSTALLED_APPS = [
         # django apps
@@ -295,7 +293,9 @@ class Common(Configuration):
     }
 
     REST_AUTH_REGISTER_SERIALIZERS = {
-        "REGISTER_SERIALIZER": "srijan_backend.apps.accounts.serializers.CustomRegisterSerializer"
+        "REGISTER_SERIALIZER": (
+            "srijan_backend.apps.accounts.serializers.CustomRegisterSerializer"
+        )
     }
 
     # Frontend URL to be used for password reset email, needs to be
@@ -307,12 +307,13 @@ class Common(Configuration):
 
     # Frontend URL to be used for email verification
     EMAIL_VERIFICATION_URL = env.str(
-        "SRIJAN_BACKEND_EMAIL_VERIFICATION_URL",
-        None
+        "SRIJAN_BACKEND_EMAIL_VERIFICATION_URL", None
     )
 
     # Override the account adapter to use the custom one
-    ACCOUNT_ADAPTER = "srijan_backend.apps.accounts.allauth_adapter.CustomAllauthAdapter"
+    ACCOUNT_ADAPTER = (
+        "srijan_backend.apps.accounts.allauth_adapter.CustomAllauthAdapter"
+    )
 
     # Mandate the need for an Email Address when registering.
     ACCOUNT_EMAIL_REQUIRED = True
@@ -371,21 +372,16 @@ class Common(Configuration):
     # Max page size for pagination, required since we are using dynamic page
     # size pagination
     MAX_PAGE_SIZE = env.int("MAX_PAGE_SIZE", 30)
+    DEFAULT_PAGE_SIZE = env.int("DEFAULT_PAGE_SIZE", 20)
 
     # Url prefixes and settings
-    API_PREFIX = env.str(
-        "SRIJAN_BACKEND_API_PREFIX", "api"
-    )
-    API_VERSION = env.str(
-        "SRIJAN_BACKEND_API_VERSION", "v1"
-    )
+    API_PREFIX = env.str("SRIJAN_BACKEND_API_PREFIX", "api")
+    API_VERSION = env.str("SRIJAN_BACKEND_API_VERSION", "v1")
     PLATFORM_PREFIX = env.str(
         "SRIJAN_BACKEND_PLATFORM_PREFIX",
         "_platform",
     )
-    DOCS_PREFIX = env.str(
-        "SRIJAN_BACKEND_DOCS_PREFIX", "docs"
-    )
+    DOCS_PREFIX = env.str("SRIJAN_BACKEND_DOCS_PREFIX", "docs")
 
     # Other settings
     COMMUNICATOR_NAME = env.str(

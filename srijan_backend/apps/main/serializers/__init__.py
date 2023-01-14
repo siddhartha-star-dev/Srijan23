@@ -6,6 +6,7 @@ from srijan_backend.apps.main.serializers.activities_serializers import (
     WorkshopSerializer,
 )
 from srijan_backend.apps.main.serializers.management_serializers import (
+    DevelopersSerializer,
     NotificationSerializer,
     OrganisingTeamMemberSerializer,
 )
