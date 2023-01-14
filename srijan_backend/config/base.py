@@ -89,7 +89,7 @@ class Common(Configuration):
         "SRIJAN_BACKEND_STATIC_URL",
         default="/static/",
     )
-    STATIC_ROOT = rel("static_collected")
+    STATIC_ROOT = rel("static")
     STATICFILES_DIR = rel("static")
 
     # Media config

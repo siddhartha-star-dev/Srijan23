@@ -14,6 +14,8 @@ class Prod(Common):
         )
     }
 
+    ALLOWED_HOSTS = ["*"]
+
     # Mail
     EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
     EMAIL_PORT = env.str("SRIJAN_BACKEND_EMAIL_PORT", default="1025")

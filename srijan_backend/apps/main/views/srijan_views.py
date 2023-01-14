@@ -38,7 +38,6 @@ class EventViewSet(
     http_method_names = [
         "get",
     ]
-    pagination_class = None
     permission_classes = [AllowAny]
     psq_rules = {
         "list": [Rule([AllowAny], EventSerializer)],
