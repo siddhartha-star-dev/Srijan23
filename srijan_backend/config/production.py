@@ -36,8 +36,8 @@ class Prod(Common):
     # Disable CORS check
     CORS_ALLOWED_ORIGINS = env.list(
         "SRIJAN_BACKEND_CORS_WHITELIST",
-        default=["http://localhost:8000", "http://127.0.0.1:8000", "https://api.srijan-iitism.com", "https://srijan-iitism.com"],
-    )
+        default=["http://localhost:3000","http://localhost:8000", "http://127.0.0.1:8000", "https://api.srijan-iitism.com", "https://srijan-iitism.com"],
+        )
 #CORS_ORIGIN_ALLOW_ALL = True
 
 
