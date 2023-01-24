@@ -371,8 +371,8 @@ class Common(Configuration):
     # Custom configs and settings
     # Max page size for pagination, required since we are using dynamic page
     # size pagination
-    MAX_PAGE_SIZE = env.int("MAX_PAGE_SIZE", 30)
-    DEFAULT_PAGE_SIZE = env.int("DEFAULT_PAGE_SIZE", 20)
+    MAX_PAGE_SIZE = env.int("MAX_PAGE_SIZE", 100)
+    DEFAULT_PAGE_SIZE = env.int("DEFAULT_PAGE_SIZE", 100)
 
     # Url prefixes and settings
     API_PREFIX = env.str("SRIJAN_BACKEND_API_PREFIX", "api")
